@@ -5,6 +5,7 @@ import Row from "../components/Row";
 import Col from "../components/Col";
 
 const About = () => (
+  
   <div>
     <Hero backgroundImage="https://i.imgur.com/qkdpN.jpg">
       <h1>Pupster</h1>

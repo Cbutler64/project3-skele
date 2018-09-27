@@ -5,7 +5,7 @@ import API from "../../utils/API";
 import { Col, Row, Container } from "../../components/Grid";
 import { List, ListItem } from "../../components/List";
 import { Input, TextArea, FormBtn } from "../../components/Form";
-
+import Nav from "../../components/Nav";
 class Books extends Component {
   // Setting our component's initial state
   state = {
@@ -62,6 +62,7 @@ class Books extends Component {
   render() {
     return (
       <Container fluid>
+    <Nav />
         <Row>
           <Col size="md-6">
             <Jumbotron>
@@ -75,6 +76,12 @@ class Books extends Component {
                 placeholder="Title (required)"
               />
               <Input
+                value={this.state.author}
+                onChange={this.handleInputChange}
+                name="author"
+                placeholder="Author (required)"
+              />
+                            <Input
                 value={this.state.author}
                 onChange={this.handleInputChange}
                 name="author"
