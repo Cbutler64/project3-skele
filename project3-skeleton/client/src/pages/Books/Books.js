@@ -9,7 +9,7 @@ import Nav from "../../components/Nav";
 class Books extends Component {
   // Setting our component's initial state
   state = {
-    books: [],
+    users: [],
     title: "",
     author: "",
     synopsis: ""
@@ -24,7 +24,7 @@ class Books extends Component {
   loadBooks = () => {
     API.getBooks()
       .then(res =>
-        this.setState({ books: res.data, title: "", author: "", synopsis: "" })
+        this.setState({ users: res.data, title: "", author: "", synopsis: "" })
       )
       .catch(err => console.log(err));
   };

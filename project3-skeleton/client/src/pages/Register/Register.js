@@ -9,7 +9,7 @@ import Nav from "../../components/Nav";
 class Register extends Component {
   // Setting our component's initial state
   state = {
-    books: [],
+    users: [],
     username: "",
     realname: "",
     photo: "",
@@ -27,7 +27,8 @@ class Register extends Component {
   loadBooks = () => {
     API.getBooks()
       .then(res =>
-        this.setState({ books: res.data, username: "", realname: "", photo: "" })
+        this.setState({ users: res.data, username: "", realname: "", photo: "", gender: "",
+        password: "", })
       )
       .catch(err => console.log(err));
   };
@@ -60,7 +61,7 @@ class Register extends Component {
         password: this.state.password,
         
       })
-        .then()
+        .then(res => this.loadBooks())
         .catch(err => console.log(err));
     }
   };
@@ -116,11 +117,11 @@ class Register extends Component {
           </Col>
           <Col size="md-6 sm-12">
             <Jumbotron>
-              <h1>Books On My List</h1>
+              <h1>users On My List</h1>
             </Jumbotron>
-            {this.state.books.length ? (
+            {this.state.users.length ? (
               <List>
-                {this.state.books.map(book => {
+                {this.state.users.map(book => {
                   return (
                     <ListItem key={book._id}>
                       <a href={"/books/" + book._id}>
