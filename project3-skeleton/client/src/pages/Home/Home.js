@@ -9,8 +9,7 @@ import Nav from "../../components/Nav";
 class Register extends Component {
   // Setting our component's initial state
   state = {
-    users: [],
-    username: "",
+    
     realname: "",
     photo: "",
     gender: "",
@@ -52,17 +51,12 @@ class Register extends Component {
   // Then reload books from the database
   handleFormSubmit = event => {
     event.preventDefault();
-    if (this.state.username && this.state.realname) {
-      API.saveBook({
-        username: this.state.username,
-        realname: this.state.realname,
-        photo: this.state.photo,
-        gender: this.state.gender,
-        password: this.state.password,
-        
-      })
-        .then(res => this.loadBooks())
-        .catch(err => console.log(err));
+    if (this.state.username && this.state.password) {
+      API.getBooks()
+      .then(res =>
+        this.setState({ users: res.data })
+      )
+      .catch(err => console.log(err));
     }
   };
 
@@ -71,50 +65,6 @@ class Register extends Component {
       <Container fluid>
         <Nav />
         <Row>
-          <Col size="md-6">
-            <Jumbotron>
-              <h1>Sign up Here</h1>
-            </Jumbotron>
-            <form>
-              <Input
-                value={this.state.username}
-                onChange={this.handleInputChange}
-                name="username"
-                placeholder="username (required)"
-              />
-              <Input
-                value={this.state.realname}
-                onChange={this.handleInputChange}
-                name="realname"
-                placeholder="realname (required)"
-              />
-              <Input
-                value={this.state.photo}
-                onChange={this.handleInputChange}
-                name="photo"
-                placeholder="photo (Optional)"
-              />
-              <Input
-                value={this.state.gender}
-                onChange={this.handleInputChange}
-                name="gender"
-                placeholder="gender (required)"
-              />
-              <Input
-                value={this.state.password}
-                onChange={this.handleInputChange}
-                name="password"
-                placeholder="password (required)"
-              />
-        
-              <FormBtn
-                disabled={!(this.state.realname && this.state.username)}
-                onClick={this.handleFormSubmit}
-              >
-                Submit
-              </FormBtn>
-            </form>
-          </Col>
           <Col size="md-6 sm-12">
             <Jumbotron>
               <h1>Registered Users</h1>
