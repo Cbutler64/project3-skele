@@ -10,14 +10,14 @@ class About extends Component {
     return(
   <div>
     <Nav />
-    <Hero backgroundImage="https://i.imgur.com/qkdpN.jpg">
-      <h1>Pupster</h1>
-      <h2>They're the Good Boys and Girls</h2>
+    <Hero backgroundImage="https://coolbackgrounds.io/images/backgrounds/sea-edge-311c5cd5.png">
+      <h1>Vfriend</h1>
+      <h2>Best Social Media Site Around</h2>
     </Hero>
     <Container style={{ marginTop: 30 }}>
       <Row>
         <Col size="md-12">
-          <h1>Welcome To Pupster!</h1>
+          <h1>Welcome To Vfriend!</h1>
         </Col>
       </Row>
       <Row>

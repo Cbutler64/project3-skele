@@ -10,7 +10,7 @@ import Nav from "../../components/Nav";
 class Register extends Component {
   // Setting our component's initial state
   state = {
-    
+    users: [],
     realname: "",
     photo: "",
     gender: "",
@@ -27,7 +27,7 @@ class Register extends Component {
   loadBooks = () => {
     API.getBooks()
       .then(res =>
-        this.setState({ users: res.data, username: "", realname: "", photo: "", gender: "",
+        this.setState({ username: "", realname: "", photo: "", gender: "",
         password: "", })
       )
       .catch(err => console.log(err));
@@ -52,20 +52,25 @@ class Register extends Component {
   // Then reload books from the database
   handleFormSubmit = event => {
     event.preventDefault();
-    console.log(this.state.username + this.state.password);
+    console.log("username: "+this.state.username +" pass: "+ this.state.password);
+    localStorage.setItem("username", this.state.username)
     if (this.state.username && this.state.password) {
-      API.getBooks()
-      .then(res =>
+      API.getBookName(this.state.username)
+      .then(res => { console.log(res)
+        
         this.setState({ users: res.data })
-      )
+      })
+      //console.log(this.state.users)
       .catch(err => console.log(err));
+      console.log(this.state.users)
     }
+    
   };
 
   render() {
     return (
       <Container fluid>
-        <Nav />
+        
         <Row>
           <Col size="md-12">
             <Jumbotron>
@@ -84,12 +89,20 @@ class Register extends Component {
                 name="password"
                 placeholder="password (required)"
               />
-              <FormBtn
+            
+              <FormBtn  className={
+            window.location.pathname === "/home"
+
+          }
                 disabled={!(this.state.username && this.state.password)}
                 onClick={this.handleFormSubmit}             >
                 Submit
               </FormBtn>
+
             </form>
+            <Link to="/home" className="nav-link">
+            Home
+          </Link>
             <Link to="/register" className="nav-link">
             Register
           </Link>

@@ -20,20 +20,20 @@ const Navbar = props => (
               : "nav-item"
           }
         >
-          <Link to="/About" className="nav-link">
-            About
+          <Link to="/Home" className="nav-link">
+            Home
           </Link>
    
         </li>
         <li
           className={
-            window.location.pathname === "/discover"
+            window.location.pathname === "/About"
               ? "nav-item active"
               : "nav-item"
           }
         >
-          <Link to="/discover" className="nav-link">
-            Discover
+          <Link to="/About" className="nav-link">
+            About
           </Link>
         </li>
         <li

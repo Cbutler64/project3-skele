@@ -6,6 +6,7 @@ import { Col, Row, Container } from "../../components/Grid";
 import { List, ListItem } from "../../components/List";
 import { Input, TextArea, FormBtn } from "../../components/Form";
 import Nav from "../../components/Nav";
+import { Link } from "react-router-dom";
 class Register extends Component {
   // Setting our component's initial state
   state = {
@@ -69,7 +70,6 @@ class Register extends Component {
   render() {
     return (
       <Container fluid>
-        <Nav />
         <Row>
           <Col size="md-6">
             <Jumbotron>
@@ -114,6 +114,9 @@ class Register extends Component {
                 Submit
               </FormBtn>
             </form>
+            <Link to="/" className="nav-link">
+            Login
+          </Link>
           </Col>
           <Col size="md-6 sm-12">
             <Jumbotron>

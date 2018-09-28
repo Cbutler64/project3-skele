@@ -81,7 +81,7 @@ class Books extends Component {
                 name="author"
                 placeholder="Author (required)"
               />
-                            <Input
+                <Input
                 value={this.state.author}
                 onChange={this.handleInputChange}
                 name="author"

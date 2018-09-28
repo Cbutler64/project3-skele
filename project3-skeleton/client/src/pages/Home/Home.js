@@ -9,7 +9,7 @@ import Nav from "../../components/Nav";
 class Register extends Component {
   // Setting our component's initial state
   state = {
-    
+    users: [],
     realname: "",
     photo: "",
     gender: "",
